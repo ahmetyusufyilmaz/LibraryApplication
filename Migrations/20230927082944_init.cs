@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LibraryApplication.Migrations
 {
-    public partial class v1 : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,7 @@ namespace LibraryApplication.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     IsAvailable = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

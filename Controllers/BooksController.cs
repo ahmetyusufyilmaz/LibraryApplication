@@ -1,4 +1,5 @@
 ﻿using LibraryApplication.Contexts;
+using LibraryApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,5 +18,41 @@ namespace LibraryApplication.Controllers
             var books = await _context.Books.OrderBy(b => b.Name).ToListAsync();
             return View(books);
         }
+
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create([Bind("Name,Author,Image")] Book book, IFormFile image)
+        {
+            if (ModelState.IsValid)
+            {
+                if (image != null && image.Length > 0)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        image.CopyTo(memoryStream);
+                        book.Image = memoryStream.ToArray();
+                    }
+                }
+
+                _context.Add(book);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(book);
+        }
+
+
+
     }
+
+
+
 }
+

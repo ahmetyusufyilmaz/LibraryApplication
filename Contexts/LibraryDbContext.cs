@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryApplication.Contexts
 {
-    public class LibraryDbContext:DbContext
+    public class LibraryDbContext : DbContext
     {
         public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options)
         {
@@ -13,17 +13,20 @@ namespace LibraryApplication.Contexts
             modelBuilder.Entity<BorrowedBook>()
                 .HasKey(bb => bb.Id);
 
-            // Kitap ile BorrowedBook arasındaki ilişkiyi tanımlayın
             modelBuilder.Entity<BorrowedBook>()
                 .HasOne(bb => bb.Book)
                 .WithMany()
                 .HasForeignKey(bb => bb.BookId);
 
-            // Ödünç alan kullanıcı ile BorrowedBook arasındaki ilişkiyi tanımlayın
             modelBuilder.Entity<BorrowedBook>()
                 .HasOne(bb => bb.Borrower)
                 .WithMany()
                 .HasForeignKey(bb => bb.BorrowerId);
+
+            modelBuilder.Entity<Book>()
+            .Property(b => b.Image)
+            .HasColumnType("varbinary(max)") 
+            .IsRequired(false); 
 
             base.OnModelCreating(modelBuilder);
         }
