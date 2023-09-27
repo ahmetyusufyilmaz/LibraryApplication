@@ -3,8 +3,8 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
+<h3>Yeni Kitap Oluştur</h3>
+<br />
 
 @model LibraryApplication.Models.Book
 
@@ -27,7 +27,7 @@
             <input asp-for="Image" type="file" class="form-control" />
             <span asp-validation-for="Image" class="text-danger"></span>
         </div>
-  
+    <br />
         <div class="form-group">
             <input type="submit" value="Kaydet" class="btn btn-primary" />
         </div>

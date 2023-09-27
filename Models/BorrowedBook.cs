@@ -4,7 +4,7 @@
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public Guid BookId { get; set; }
-        public Guid BorrowerId { get; set; }
+        public Guid BorrowerId { get; set; } = Guid.NewGuid();
         public DateTime BorrowDate { get; set; } = DateTime.UtcNow; 
         public DateTime ReturnDate { get; set; } = DateTime.UtcNow;
         public Book Book { get; set; }

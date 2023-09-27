@@ -48,7 +48,15 @@ namespace LibraryApplication.Controllers
             return View(book);
         }
 
-
+        public IActionResult CreateBorrower(Guid bookId)
+        {
+            return RedirectToAction("Create", "Borrowers", new { bookId });
+        }
+        public async Task<IActionResult> Details(Guid id)
+        {
+            var book = await _context.Books.FirstOrDefaultAsync(c => c.Id == id);
+            return View(book);
+        }
 
     }
 

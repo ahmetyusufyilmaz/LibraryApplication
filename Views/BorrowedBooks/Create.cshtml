@@ -1,0 +1,31 @@
+﻿@model LibraryApplication.Models.BorrowedBook
+
+@{
+    ViewData["Title"] = "Ödünç Verme İşlemi Oluştur";
+}
+
+<h3>Ödünç Verme İşlemi Oluştur</h3>
+<br />
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="BookId" class="control-label">Kitap Adı</label>
+        <select asp-for="BookId" asp-items="@(new SelectList(ViewBag.Books, "Id", "Name"))" class="form-control">
+            <option value="">-- Kitap Seçin --</option>
+        </select>
+        <span asp-validation-for="BookId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BorrowerId" class="control-label">Ödünç Alacak Kişinin Adı</label>
+        <select asp-for="BorrowerId" asp-items="@(new SelectList(ViewBag.Borrowers, "Id", "FullName"))" class="form-control">
+            <option value="">-- Kişi Seçin --</option>
+        </select>
+        <span asp-validation-for="BorrowerId" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Kaydet" class="btn btn-primary" />
+    </div>
+</form>
+
+

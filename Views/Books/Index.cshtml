@@ -12,7 +12,8 @@
             <th>Kitap</th>
             <th>Yazar</th>
             <th>Kapak Resmi</th>
-            <th>Uygunluk Durumu</th>
+            <th>Uygunluk</th>
+            <th>Ödünç Verme İşlemleri ve Detaylar</th>
         </tr>
     </thead>
     <tbody>
@@ -37,11 +38,14 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.IsAvailable)
                 </td>
-             
                 <td>
-                    <a asp-action="Borrow" asp-route-id="@item.Id">Ödünç Ver</a> 
-                   
+                    <a class="btn btn-outline-secondary" asp-controller="Books" asp-action="Details" asp-route-bookId="@item.Id">Detaylar</a>
+                
+                    <a class="btn btn-outline-success" asp-controller="Books" asp-action="CreateBorrower" asp-route-bookId="@item.Id">Yeni Kişiye Ödünç Ver</a>
+
+                    <a class="btn btn-outline-primary" asp-controller="BorrowedBooks" asp-action="Create" asp-route-bookId="@item.Id">Kayıtlı Kişiye Ödünç Ver</a>
                 </td>
+
             </tr>
         }
     </tbody>

@@ -88,6 +88,11 @@ namespace LibraryApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Borrowers");

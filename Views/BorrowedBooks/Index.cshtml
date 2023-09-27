@@ -1,0 +1,45 @@
+﻿@model List<LibraryApplication.Models.BorrowedBook>
+
+
+<h3>Kişi Listesi</h3>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Yeni Ödünç Verme İşlemli</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>Kitap</th>
+            <th>Ödünç Alan Kişi</th>
+            <th>Ödünç Alma Tarihi</th>
+            <th>Geri Getirme Tarihi</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BorrowerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BorrowDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnDate)
+                </td>
+
+
+
+
+            </tr>
+        }
+    </tbody>
+</table>
