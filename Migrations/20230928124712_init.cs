@@ -46,7 +46,9 @@ namespace LibraryApplication.Migrations
                     BookId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BorrowerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BorrowDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    BookName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BorrowerName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

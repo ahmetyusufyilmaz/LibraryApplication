@@ -38,7 +38,14 @@ namespace LibraryApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                borrowedBook.BookName = _context.Books.Find(borrowedBook.BookId)?.Name;
+                borrowedBook.BorrowerName = _context.Borrowers.Find(borrowedBook.BorrowerId)?.FullName;
+               
+                var book = _context.Books.Find(borrowedBook.BookId);
+                if (book != null)
+                {
+                    book.IsAvailable = false; 
+                }
 
                 _context.Add(borrowedBook);
                 _context.SaveChanges();
@@ -46,6 +53,32 @@ namespace LibraryApplication.Controllers
             }
             return View(borrowedBook);
         }
+
+        [HttpPost]
+        public IActionResult TakeBack(Guid id)
+        {
+            var borrowedBook = _context.BorrowedBooks.Find(id);
+
+            if (borrowedBook == null)
+            {
+                return NotFound();
+            }
+
+            var book = _context.Books.Find(borrowedBook.BookId);
+            if (book != null)
+            {
+                book.IsAvailable = true;
+            }
+
+           
+            _context.SaveChanges();
+
+            return Json(new { success = true });
+        }
+
+
+
+
 
     }
 }

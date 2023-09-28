@@ -1,5 +1,6 @@
 ﻿@model List<LibraryApplication.Models.BorrowedBook>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <h3>Kişi Listesi</h3>
 
@@ -14,7 +15,8 @@
             <th>Kitap</th>
             <th>Ödünç Alan Kişi</th>
             <th>Ödünç Alma Tarihi</th>
-            <th>Geri Getirme Tarihi</th>
+            <th>Geri Getireceği Tarih</th>
+            <th>Teslim İşlemi</th>
 
         </tr>
     </thead>
@@ -24,10 +26,10 @@
             <tr>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.BookId)
+                    @Html.DisplayFor(modelItem => item.BookName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.BorrowerId)
+                    @Html.DisplayFor(modelItem => item.BorrowerName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.BorrowDate)
@@ -36,6 +38,9 @@
                     @Html.DisplayFor(modelItem => item.ReturnDate)
                 </td>
 
+                <td>
+                    <a id="teslimAlButton-@item.Id" class="btn btn-outline-success" asp-controller="BorrowedBooks" asp-action="TeslimAl" data-book-id="@item.Id">Teslim Alındı</a>
+                </td>
 
 
 
@@ -43,3 +48,30 @@
         }
     </tbody>
 </table>
+<script>
+    $(document).ready(function () {
+        $('a[id^="teslimAlButton"]').click(function (event) {
+            event.preventDefault(); 
+            var button = $(this);
+            var bookId = button.data('book-id');
+            button.removeClass('btn-outline-success').addClass('btn-success');
+          
+            button.prop('disabled', true);
+
+        
+            $.ajax({
+                url: '/BorrowedBooks/TakeBack/' + bookId,
+                type: 'POST',
+                success: function (result) {
+                   
+                   
+                    alert('Kitap teslim alındı!');
+                },
+                error: function () {
+                    alert('Hata oluştu.');
+                }
+            });
+        });
+    });
+</script>
+

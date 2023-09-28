@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryApplication.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    [Migration("20230927132715_init")]
+    [Migration("20230928124712_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,13 +58,19 @@ namespace LibraryApplication.Migrations
                     b.Property<Guid>("BookId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("BookName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("BorrowDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("BorrowerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("ReturnDate")
+                    b.Property<string>("BorrowerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ReturnDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

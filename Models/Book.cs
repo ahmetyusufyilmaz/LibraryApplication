@@ -1,8 +1,7 @@
 ﻿namespace LibraryApplication.Models
 {
-    public class Book
+    public class Book: BaseClass
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; }
         public string Author { get; set; }
         public byte[]? Image { get; set; }

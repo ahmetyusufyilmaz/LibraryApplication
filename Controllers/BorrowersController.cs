@@ -2,7 +2,6 @@
 using LibraryApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using static System.Reflection.Metadata.BlobBuilder;
 
 namespace LibraryApplication.Controllers
 {

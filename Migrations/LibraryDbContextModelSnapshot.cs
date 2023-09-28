@@ -56,13 +56,19 @@ namespace LibraryApplication.Migrations
                     b.Property<Guid>("BookId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("BookName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("BorrowDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("BorrowerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("ReturnDate")
+                    b.Property<string>("BorrowerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ReturnDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

@@ -2,9 +2,8 @@
 
 namespace LibraryApplication.Models
 {
-    public class Borrower
+    public class Borrower: BaseClass
     {
-        public Guid Id { get; set; } =  Guid.NewGuid();
         public string FirstName { get; set; }
         public string LastName { get; set; }
         [MaxLength(11)]

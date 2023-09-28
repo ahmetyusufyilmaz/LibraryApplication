@@ -3,7 +3,13 @@
 <h3>Kitaplar Listesi</h3>
 
 <p>
-    <a class="btn btn-success" asp-action="Create">Yeni Kitap Ekle</a>
+    <a class="btn btn-outline-success" asp-action="Create">Yeni Kitap Ekle</a>
+  
+       
+        <a class="btn btn-outline-danger" asp-controller="Books" asp-action="CreateBorrower" >Yeni Kişiye Ödünç Ver</a>
+
+        <a class="btn btn-outline-primary" asp-controller="BorrowedBooks" asp-action="Create">Kayıtlı Kişiye Ödünç Ver</a>
+        
 </p>
 
 <table class="table">
@@ -13,7 +19,6 @@
             <th>Yazar</th>
             <th>Kapak Resmi</th>
             <th>Uygunluk</th>
-            <th>Ödünç Verme İşlemleri ve Detaylar</th>
         </tr>
     </thead>
     <tbody>
@@ -38,13 +43,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.IsAvailable)
                 </td>
-                <td>
-                    <a class="btn btn-outline-secondary" asp-controller="Books" asp-action="Details" asp-route-bookId="@item.Id">Detaylar</a>
-                
-                    <a class="btn btn-outline-success" asp-controller="Books" asp-action="CreateBorrower" asp-route-bookId="@item.Id">Yeni Kişiye Ödünç Ver</a>
-
-                    <a class="btn btn-outline-primary" asp-controller="BorrowedBooks" asp-action="Create" asp-route-bookId="@item.Id">Kayıtlı Kişiye Ödünç Ver</a>
-                </td>
+               
 
             </tr>
         }
