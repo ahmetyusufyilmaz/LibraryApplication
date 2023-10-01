@@ -1,3 +1,3 @@
 # LibraryApplication
 
-![Alternatif Metin](0.png)
+![Alternatif Metin](wwwroot/images/0.png)
