@@ -49,6 +49,6 @@ Her sayfanın kendi yeni kişi/kitap/işlem oluşturma butonu mevcuttur. Bu buto
 
 ![Yeni ödünç işlemi Sayfası](https://github.com/ahmetyusufyilmaz/LibraryApplication/raw/master/wwwroot/images/4.PNG)
 </br>
-Ödünç verilen tarih otomatik olarak o ank itarih ve saat olarak atanır. Sadece geri getireleceği tarihi seçilir.
+Ödünç verilecek kişi ve kitap dropdown listten seçilir. Tarih otomatik olarak o anki tarih ve saat olarak atanır. Sadece geri getireleceği tarihi seçilir.
 
 
