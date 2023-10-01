@@ -6,6 +6,11 @@
 <h3>Yeni Kişi Oluştur</h3>
 <br />
 @model LibraryApplication.Models.Borrower
+<style>
+    .form-control {
+        width: 50%; /* İstediğiniz boyuta göre ayarlayın */
+    }
+</style>
 <form asp-action="Create" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label asp-for="FirstName" class="control-label">Adı</label>
