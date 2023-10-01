@@ -1,12 +1,16 @@
 # LibraryApplication
 
+Proje, Kütüphanede bulunan kitapların takibini ve dışarıya ödünç verilebilmesini sağlayan bir uygulamadır.
+
+</br>
 Projede .Net Core MVC, EF ve MS SQL kullanışmıştır. Proje dosyalarında Migration'lar mevcuttur.  `update-database` komutu ile local veritabanınıza ilgili veritabanını ve tabloları ekleyebilirsiniz.
 
-`"ConnectionStrings": {
-    "LibraryDbContext": "Server=.;Database=LibraryDb;Trusted_Connection=true;TrustServerCertificate=True"
-  },`
+</br>
+</br>
 
-Veritabanı tablo yapısı: </br>
+Veritabanı tablo yapısı:
+
+</br>
 
 ![sql](https://github.com/ahmetyusufyilmaz/LibraryApplication/raw/master/wwwroot/images/9.PNG)
 
