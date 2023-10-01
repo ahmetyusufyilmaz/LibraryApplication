@@ -1,4 +1,4 @@
 # LibraryApplication
 
-https://github.com/ahmetyusufyilmaz/LibraryApplication/blob/master/wwwroot/images/0.PNG)https://github.com/ahmetyusufyilmaz/LibraryApplication/blob/master/wwwroot/images/0.PNG
+![Alternatif Metin](https://github.com/ahmetyusufyilmaz/LibraryApplication/raw/master/wwwroot/images/0.PNG)
 
